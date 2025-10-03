@@ -1,5 +1,7 @@
-
-const criarTarefa = (evento) =>{
+import BotaoConclui from "./componentes/concluiTarefa.js";
+import BotaoDeleta from "./componentes/deletaTarefa.js";
+    
+    const criarTarefa = (evento) =>{
     evento.preventDefault();//previne o reload da pagina gerada pelo formulário
 
     const lista = document.querySelector('[data-list]');
@@ -13,6 +15,8 @@ const criarTarefa = (evento) =>{
     const conteudo = `<p class="content">${valor}</p>`
 
     tarefa.innerHTML = conteudo;
+    tarefa.appendChild(BotaoConclui());
+    tarefa.appendChild(BotaoDeleta());
 
     lista.appendChild(tarefa);
 
@@ -30,7 +34,4 @@ const novaTarefa = document.querySelector('[data-form-button]')
 
 
 novaTarefa.addEventListener('click', criarTarefa);
-
-
-
 
